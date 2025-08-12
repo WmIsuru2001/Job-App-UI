@@ -20,7 +20,11 @@ class CustomAppBar extends StatelessWidget {
         ),
         Text(
           "Job Creatuve",
-          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
         ),
         Container(
           width: 50,

@@ -21,7 +21,23 @@ class _HomePageState extends State<HomePage> {
             children: [
               CustomAppBar(),
               SizedBox(height: 10),
-              Text("Good Morning Isuru"),
+              Text(
+                "Good Morning Isuru",
+                style: TextStyle(
+                  fontSize: 17,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              SizedBox(height: 10),
+              Text(
+                "Find Your\nCreative Job",
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.black,
+                ),
+              ),
             ],
           ),
         ),
