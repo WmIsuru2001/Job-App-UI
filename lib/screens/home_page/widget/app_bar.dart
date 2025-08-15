@@ -21,7 +21,7 @@ class CustomAppBar extends StatelessWidget {
         Text(
           "Job Creatuve",
           style: TextStyle(
-            fontSize: 22,
+            fontSize: 24,
             fontWeight: FontWeight.bold,
             color: Colors.black,
           ),
