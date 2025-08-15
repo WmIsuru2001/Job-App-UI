@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:job_app_ui/screens/home_page/widget/app_bar.dart';
+import 'package:job_app_ui/services/get_data.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,6 +10,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  GetData data = GetData();
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
@@ -97,34 +99,48 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               SizedBox(height: 10),
-              Container(
-                width: size.width * 0.75,
-                height: size.width * 0.4,
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            "Senior UX Designer",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
-                            ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                physics: BouncingScrollPhysics(),
+                child: Row(
+                  children: List.generate(data.getJobData().length, (index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Container(
+                        width: size.width * 0.75,
+                        height: size.width * 0.4,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Text(
+                                    data.getJobData()[index].title,
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  Spacer(),
+                                  Icon(
+                                    Icons.bookmark_add,
+                                    color: Colors.grey.shade700,
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
-                          Spacer(),
-                          Icon(Icons.bookmark_add, color: Colors.grey.shade700),
-                        ],
+                        ),
                       ),
-                    ],
-                  ),
+                    );
+                  }),
                 ),
               ),
             ],
