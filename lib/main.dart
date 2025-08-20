@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:job_app_ui/screens/home_page/home_page.dart';
+import 'package:job_app_ui/screens/job%20view/job_view.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Job App UI",
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: JobViewPage(),
     );
   }
 }
